@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Name Evaluation</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+    
+    .container {
+      text-align: center;
+    }
+    
+    h1 {
+      margin-bottom: 20px;
+    }
+    
+    p {
+      margin-bottom: 10px;
+    }
+    
+    input[type="text"] {
+      padding: 8px 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+    
+    button {
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+    
+    #loadingMessage,
+    #resultMessage {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    
+    #loadingMessage {
+      display: none;
+    }
+  </style>
+  <script>
+    function evaluateName() {
+      var name = document.getElementById('nameInput').value;
+      var loadingMessage = document.getElementById('loadingMessage');
+      var resultMessage = document.getElementById('resultMessage');
+      
+      loadingMessage.style.display = 'block';
+      resultMessage.style.display = 'none';
+      
+      setTimeout(function() {
+        var percentage = Math.floor(Math.random() * 101);
+        loadingMessage.style.display = 'none';
+        resultMessage.innerHTML = 'Your name is ' + percentage + '% good!';
+        resultMessage.style.display = 'block';
+      }, 2000);
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Name Evaluation</h1>
+    <p>Enter your name:</p>
+    <input type="text" id="nameInput" />
+    <br />
+    <button onclick="evaluateName()">Evaluate</button>
+    
+    <div id="loadingMessage">Loading...</div>
+    <div id="resultMessage"></div>
+  </div>
+</body>
+</html>
